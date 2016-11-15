@@ -23,6 +23,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        dayStepper.value = 0
+        hourStepper.value = 0
+        displayDayStepperValue.text = "0"
+        displayHourStepperValue.text = "0"
+        displayDate.text = displayTheDate(theDate: dateSelector.date)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,5 +42,12 @@ class ViewController: UIViewController {
     }
   
     @IBAction func dateSelectorChanged(_ sender: UIDatePicker) {
+    }
+    
+    func displayTheDate(theDate:Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-YYYY"
+        let strDate = dateFormatter.string(from: theDate)
+        return strDate
     }
 }
