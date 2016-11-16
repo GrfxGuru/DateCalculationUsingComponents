@@ -36,18 +36,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func dayStepperChanged(_ sender: UIStepper) {
+        displayDate.text = displayTheDate(theDate: calculateNewDate())
     }
  
     @IBAction func hourStepperChanged(_ sender: UIStepper) {
+        displayDate.text = displayTheDate(theDate: calculateNewDate())
     }
   
     @IBAction func dateSelectorChanged(_ sender: UIDatePicker) {
+        displayDate.text = displayTheDate(theDate: calculateNewDate())
     }
     
     func displayTheDate(theDate:Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-YYYY"
+        dateFormatter.dateFormat = "MM-dd-YYYY | hh-mm"
         let strDate = dateFormatter.string(from: theDate)
         return strDate
+    }
+    
+    func calculateNewDate() -> Date {
+        let newDate = Date()
+        return newDate
     }
 }
