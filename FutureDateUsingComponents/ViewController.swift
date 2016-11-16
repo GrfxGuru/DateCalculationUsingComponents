@@ -55,7 +55,12 @@ class ViewController: UIViewController {
     }
     
     func calculateNewDate() -> Date {
-        let newDate = Date()
-        return newDate
+        let date = dateSelector.date
+        let calendar = NSCalendar.current
+        var components = DateComponents()
+        components.day = Int(dayStepper.value)
+        components.hour = Int(hourStepper.value)
+        let newDate = calendar.date(byAdding: components, to: date)
+        return newDate!
     }
 }
