@@ -37,10 +37,12 @@ class ViewController: UIViewController {
 
     @IBAction func dayStepperChanged(_ sender: UIStepper) {
         displayDate.text = displayTheDate(theDate: calculateNewDate())
+        displayDayStepperValue.text = String(dayStepper.value)
     }
  
     @IBAction func hourStepperChanged(_ sender: UIStepper) {
         displayDate.text = displayTheDate(theDate: calculateNewDate())
+        displayHourStepperValue.text = String(hourStepper.value)
     }
   
     @IBAction func dateSelectorChanged(_ sender: UIDatePicker) {
